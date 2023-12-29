@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TEXT EDITOR</title>
+	<style type="text/css">
+		.mdiv{
+			height: 100vh;
+			width: 100%;
+			background-color: grey;
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			display: flex;
+			justify-content: center;
+			background-image: url('https://miro.medium.com/v2/resize:fit:1358/1*lTjTJA7zBekYw-MHOzH1xA.gif');
+			background-size: cover;
+			background-position: center;
+		}
+		.text{
+			
+		
+			margin-top: 50px;
+		}
+		#txt{
+			width: 100%;
+			opacity: 0.9;
+			background-color: brown;
+			color: black;
+			font-weight: bolder;
+
+
+		}
+		button{
+			background-color: #ed8453;
+			color: white;
+			border: 2px solid blue;
+			font-weight: bolder;
+		}
+		.info2{
+			margin-top: 70px;
+			background-color: brown;
+			opacity: 0.9;
+			border: 2px solid limegreen;
+
+		}
+
+	</style>
+
+
+</head>
+
+<body>
+	<div class="mdiv">
+		<div class="text">
+
+		<h1 align="center" style="color: white; background-color: brown; border: 2px solid limegreen; opacity: 0.9;">TEXT EDITOR</h1>
+		<div>
+		<form >
+			<textarea rows="10" cols="50" placeholder="enter the text" id="txt" onkeypress="updateInfo()" autofocus ></textarea>
+			<br><br>		
+				<button type="button" onclick="upperCase()">UPPER CASE</button>
+				<button type="button" onclick="lowerCase()">LOWER CASE</button>
+				<button type="button" onclick="bold()">BOLD</button>
+				<button type="button" onclick="search()">SEARCH</button>
+				<button type="button" onclick="alignRight()">align right</button>
+				<button type="button" onclick="cursive()"> CURSIVE</button>
+				<button type="button" onclick="sans()"> SANS SERIF</button>
+				<button type="button" onclick="italic()"> ITALIC</button><br><br>
+				<button type="button" onclick="ariel()"> ARIAL BALCK</button> 
+				<button type="button" onclick="underline()">UNDERLINE</button>
+				<button type="button" onclick="overline()"> OVERLINE</button>
+				<button type="button" onclick="size()"> size</button>
+				<button type="button" onclick="alignCenter()">ALIGN CENTER</button>
+				<button type="button" onclick="()">ALIGN CENTER</button>
+				<button type="button" onclick="alignLeft()">ALIGN LEFT </button><br><br>
+				<button type="button" onclick="fontSize()">FONT SIZE</button>
+				<button type="button" onclick="caps()">CAPITALISE</button>
+				<button type="button" onclick="backGround()">BG</button>
+				
+				<button type="button" onclick="color()">Text Color</button>
+				<button type="button" onclick="splitt()">split</button>
+				<button type="button" onclick="splitSen()">split Sentence</button>
+				<button type="button" onclick="txt.value=''" style="color: red; font-weight: bolder;"> CLEAR ALL</button>
+
+				 
+
+
+			<br><br>
+
+			<h1 style="color: white;" id="info" align="center" class="info2">
+				THE TEXT CONTAINS 0 WORDS AND 0 CHARACTERS
+			</h1>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		let txt =document.getElementById("txt");
+		let info= document.getElementById("info");
+		// let drdwn = document.getElementById("drdwn");
+		
+
+		function upperCase(){
+			txt.value=txt.value.toUpperCase();
+		}
+		function lowerCase()
+		{
+			txt.value=txt.value.toLowerCase();
+		}
+		function bold()
+		{
+			txt.style.fontWeight="bolder";
+		}
+		function alignRight() {
+			txt.style.textAlign="right";
+		}
+		function cursive()
+		{
+			txt.style.fontFamily="cursive";
+		}
+		function underline() {
+			txt.style.textDecoration="underline";
+		}
+
+		function updateInfo() {
+			let text =txt.value;
+			info.innerHTML = `THE TEXT CONTAINS ${text.split(' ').length} WORDS AND ${text.length} CHARACTERS` 
+		}
+		function sans() {
+			txt.style.fontFamily="sans-serif"
+		}
+		function italic() {
+			txt.style.fontStyle="italic";
+		}
+		function overline() {
+			txt.style.textDecoration="overline";
+		}
+
+		function search()
+		{
+			let str =prompt("enter to search");
+			let text = txt.value;
+			if (text.includes(str)) {
+				alert(`yes ${str} is present`);
+			}
+			else{
+				alert(`${str} is not present`);
+			}
+		}
+		function size() {
+			txt.style.fontSize="30px";
+		}
+		function alignCenter() {
+			txt.style.textAlign="center";
+		}
+		function alignLeft() {
+			txt.style.textAlign="left";
+		}
+		function fontSize() {
+			txt.style.fontSize="40px";
+		}
+		function caps() {
+			txt.style.textTransform="capitalize";
+		}
+		function backGround() {
+			txt.style.backgroundColor="skyblue";
+		}
+		function splitt() {
+			txt.value=txt.value.split('');
+		}
+		function splitSen() {
+			txt.value=txt.value.split(' ');
+		}
+		function color() {
+			txt.style.color="red";
+		}
+
+	</script>
+</body>
+</html>
